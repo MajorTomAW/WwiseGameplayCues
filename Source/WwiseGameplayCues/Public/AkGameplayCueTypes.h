@@ -3,6 +3,7 @@
 #pragma once
 #include <AK/SoundEngine/Common/AkTypedefs.h>
 
+#include "AkGameplayTypes.h"
 #include "GameplayCueNotifyTypes.h"
 
 #include "AkGameplayCueTypes.generated.h"
@@ -98,6 +99,14 @@ public:
 	/** The Ak event to trigger. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
 	TObjectPtr<UAkAudioEvent> AkEvent;
+
+	/** How long it should take to fade out.  Only used on looping gameplay cues. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	int32 LoopingFadeOutDurationMs;
+
+	/** Interpolation for fading out.	Only used on looping gameplay cues. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	EAkCurveInterpolation LoopingFadeOutInterpolation;
 };
 
 /**
@@ -144,6 +153,50 @@ protected:
 	/** Decal to be spawned on gameplay cue execution.  Actor should have fade out time or override should be set so it will clean up properly. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
 	FGameplayCueNotify_DecalInfo BurstDecal;
+};
+
+/**
+ * FAkGameplayCueNotify_LoopingEffects
+ *
+ *	Set of looping effects to spawn for looping Ak gameplay cues.
+ */
+USTRUCT(BlueprintType)
+struct FAkGameplayCueNotify_LoopingEffects
+{
+	GENERATED_BODY()
+
+	UE_API FAkGameplayCueNotify_LoopingEffects();
+	UE_API virtual ~FAkGameplayCueNotify_LoopingEffects() {}
+
+	UE_API void StartEffects(const FGameplayCueNotify_SpawnContext& SpawnContext, FAkGameplayCueNotify_SpawnResult& OutSpawnResult) const;
+	UE_API void StopEffects(FAkGameplayCueNotify_SpawnResult& SpawnResult) const;
+
+	UE_API virtual void ValidateAssociatedAssets(const UObject* ContainingAsset, const FString& Context, class FDataValidationContext& ValidationContext) const;
+
+protected:
+	/** Particle systems to be spawned on gameplay cue loop start. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	TArray<FGameplayCueNotify_ParticleInfo> LoopingParticles;
+
+	/** Sound to be played on gameplay cue loop start. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	TArray<FAkGameplayCueNotify_AkEventInfo> LoopingAkEvents;
+
+	/** Camera shake to be played on gameplay cue loop start. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	FGameplayCueNotify_CameraShakeInfo LoopingCameraShake;
+
+	/** Camera lens effect to be played on gameplay cue loop start. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	FGameplayCueNotify_CameraLensEffectInfo LoopingCameraLensEffect;
+
+	/** Force feedback to be played on gameplay cue loop start. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayCueNotify)
+	FGameplayCueNotify_ForceFeedbackInfo LoopingForceFeedback;
+
+	/** Input device properties to be applied on gameplay cue loop start. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = GameplayCueNotify)
+	FGameplayCueNotify_InputDevicePropertyInfo LoopingInputDevicePropertyEffect;
 };
 
 #undef UE_API

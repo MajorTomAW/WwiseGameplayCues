@@ -1,4 +1,4 @@
-﻿// Copyright Epic Games, Inc. All Rights Reserved.
+﻿// Author: Tom Werner (MajorT), 2026 February
 
 #pragma once
 
@@ -7,8 +7,8 @@
 class FWwiseGameplayCuesModule : public IModuleInterface
 {
 public:
-
-	/** IModuleInterface implementation */
+	//~Begin IModuleInterface
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+	//~End IModuleInterface
 };

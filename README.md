@@ -8,3 +8,6 @@ However, they only support engine sound classes and don't offer any compatibilit
 > [!NOTE]
 > This plugin is in active development.
 > This repo solely exists for version control and not for sharing (yet).
+
+## Classes
+### UAkGameplayCueNotify_Burst

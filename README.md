@@ -18,9 +18,10 @@ The new ``FAkGameplayCueNotify_AkEventInfo`` replaces the old ``FGameplayCueNoti
 Following Gameplay Cue classes are included in this plugin to support Ak Audio Events:
 
 ### Gameplay Cue Classes
-- UAkGameplayCueNotify_Burst
-- AAkGameplayCueNotify_BurstLatent
-- AAkGameplayCueNotify_Looping
+- [UAkGameplayCueNotify_Burst](/Source/WwiseGameplayCues/Public/AkGameplayCueNotify_Burst.h)
+- [AAkGameplayCueNotify_BurstLatent](/Source/WwiseGameplayCues/Public/AkGameplayCueNotify_BurstLatent.h)
+- [AAkGameplayCueNotify_Looping](/Source/WwiseGameplayCues/Public/AkGameplayCueNotify_Looping.h)
 
 
 Additionally, the ``FAkGameplayCueNotify_AkEventInfo`` uses a ``FAkGameplayCueNotify_SpawnResult`` which is a copy of the ``FGameplayCueNotify_SpawnResult``, except that it stores a list of ``AkPlayingID`` Id's instead of audio components.
+@see [FAkGameplayCueNotify_AkEventInfo](/Source/WwiseGameplayCues/Public/AkGameplayCueTypes.h)

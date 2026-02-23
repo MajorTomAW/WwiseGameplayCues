@@ -23,5 +23,6 @@ Following Gameplay Cue classes are included in this plugin to support Ak Audio E
 - [AAkGameplayCueNotify_Looping](/Source/WwiseGameplayCues/Public/AkGameplayCueNotify_Looping.h)
 
 
-Additionally, the ``FAkGameplayCueNotify_AkEventInfo`` uses a ``FAkGameplayCueNotify_SpawnResult`` which is a copy of the ``FGameplayCueNotify_SpawnResult``, except that it stores a list of ``AkPlayingID`` Id's instead of audio components.
-@see [FAkGameplayCueNotify_AkEventInfo](/Source/WwiseGameplayCues/Public/AkGameplayCueTypes.h)
+Additionally, the ``FAkGameplayCueNotify_AkEventInfo`` uses a ``FAkGameplayCueNotify_SpawnResult`` which is a copy of the ``FGameplayCueNotify_SpawnResult``, except that it stores a list of ``AkPlayingID`` Id's instead of audio components.  
+@see [FAkGameplayCueNotify_AkEventInfo](/Source/WwiseGameplayCues/Public/AkGameplayCueTypes.h#L72)  
+@see [FAkGameplayCueNotify_SpawnResult](/Source/WwiseGameplayCues/Public/AkGameplayCueTypes.h#L25)  

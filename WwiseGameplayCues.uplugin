@@ -1,0 +1,23 @@
+﻿{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1",
+	"FriendlyName": "WwiseGameplayCues",
+	"Description": "GameplayCue implementation for Wwise event support",
+	"Category": "Audio",
+	"CreatedBy": "MajorT",
+	"CreatedByURL": "https://github.com/MajorTomAW",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "WwiseGameplayCues",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
